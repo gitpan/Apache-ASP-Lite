@@ -1,0 +1,29 @@
+Apache::ASP::Lite
+
+Implementation of IIS $Request and $Response objects in non-IIS environment.
+
+Provides common API across both platforms.
+
+You can write "ASP ready" CGI scripts under Apache. Making for future 
+porting to IIS almost seamless.
+
+
+
+    use Apache::ASP::Lite; 
+
+    $IE=true if $Request->ServerVariables("HTTP_USER_AGENT")->Item =~/MSIE/;
+
+    $Response->Write("hello<br>\n");
+ 
+    $Response->Write("IE=$IE<br>\n");
+
+    $Response->Write("id=" . $Request->QueryString("id")->Item . "<br>\n");
+
+
+
+
+Ross Ferguson 
+29 Jan, 2001
+
+ 
+
